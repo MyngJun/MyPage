@@ -1,0 +1,88 @@
+* 'flex-item.item{5}*5' 로 쉽게 넘버링이 5까지 있는 item 5개 생성 가능
+* '*'은 전체 지정
+
+1] 레이아웃: html요소를 효과적으로 배치하고 구성하는 것
+
+1) flexbox: HTML요소를 배치, 정렬, 분산할 수 있는 방법을 제공하는 CSS3의 새로운 레이아웃 방식
+
+2) flexbox 구성
+    A) flex item: flex container 안에 있는 여러개의 자식 요소 
+    B) flex container: flex item을 감싸고 있는 부모 요소
+
+3) flexbox 주축
+*가로가 주축이라면 세로가 교차축, 세로가 주축이면 가로가 교차축
+    -flex-direction의 속성값에 따라서 달라짐
+    -container에 설정하는 속성
+    -기본적으로 row로 설정되어 있음
+
+4) flexbox 속성 분류
+    -flex container에 지정하는 속성과 자식요소인 flex item에 지정하는 속성으로 나뉨
+
+    A) flex container
+        -전체적인 정렬과 흐름 속성 정의
+        a) display
+        b) flex-direction: 주축 방향 설정
+            -row: 좌에서 우로 수평 배치(flex-direction의 기본값)
+            -row-reverse
+            -column: 위에서 아래로 수직으로 배치
+            -column-reverse
+        c) flex-wrap: 자식요소인 item을 한줄로 또는 여러줄로 배치
+            -nowrap: flex item을 개행하지 않고 1행에 배치(flex-wrap 속성의 기본값). 
+                     item의 폭은 flex containter에 들어갈 수 있는 크기로 축소됨.
+                     item들의 width의 합계가 container의 width보다 큰 경우 이는 넘치게 되는데 overflow: auto를 지정하면 가로 스크롤이 생겨 넘치지 않음
+            -wrap: item들의 width 합계가 container의 width보다 큰 경우 item을 개행하여 배치한다.
+                   기본적으로 좌에서 우, 위에서 아래로 배치
+            -wrap-reverse: wrap과 동일하나 방향이 반대.
+        d) flex-flow: flex-direction 속성과 flex-wrap 속성을 설정하기 위한 단축속성
+                      기본값은 row, nowrap
+            ex) flex-container{
+                flex-flow: <flex-direction> || <flex-wrap>;
+                }
+        e) justify-content: container의 main axis를 기준으로 item을 수평 정렬한다.
+                            -수평정렬을 도와줌(justify-content & align-content 비교)
+            -flex-start
+            -flex-end
+            -center
+            -space-between
+            -space-around
+        f) align-items: item을 container의 수직방향으로 정렬
+                        -이 속성은 모든 flex item에 적용된다.
+                        -align-item은 flex line을 기준으로 정렬하는 반면, align-content는 flex line을 정렬한다.
+            -stretch
+            -flex-start
+            -flex-end
+            -center
+            -baseline
+        g) align-content: container의 cross axis를 기준으로 item을 수평정렬
+                          -수직정렬을 도와줌(justify-content & align-content 비교)
+            -stretch
+            -flex-start
+            -flex-end
+            -center
+            -space-between
+            -space-around
+
+    B) flex item
+        -자식 요소의 크기나 순서에 관련된 속성 정의
+        a) align-self: align-items 속성보다 우선하여 개별 flex item을 정렬
+                       -기본값은 auto이다.
+        b) flex: flex-grow, flex-shrink, flex-basis속성의 단축 속성
+                 -기본값은 0 1 auto 이다.
+                 -W3C에서는 이 속성을 사용하는 것 보다 따로 기술하는 것을 추천한다.
+        c) flex-grow: item의 너비에 대한 확대 인자를 지정한다.
+                      -기본값은 0이고 음수값은 무효이다.
+                      -기본 화면에서 width를 키울 때 얼마나 키우는지에 따라 원래 너비에서 얼마나 넓어지는지 정의
+                      -즉 원래는 각 item의 width가 같더라도 container의 width가 커짐에 따라 item 서로의 width비가 달라질 수 있다.
+        d) flex-shrink: item의 너비에 대한 축소 인자를 지정한다.
+                        -기본값은 1이고 음수값은 무효이다.
+                        -0을 지정하면 축소가 해제되어 원래 너비를 유지함
+                        -기본 화면에서 width를 줄일 때 얼마나 좁히는지에 따라 원래 너비에서 얼마나 좁아지는지 정의
+                        -즉 원래는 각 item의 width가 같더라도 container의 width가 작아짐에 따라 item 서로의 width 비가 달라질 수 있다.
+        e) flex-basis: item의 너비 기본값 지정
+                       -기본값은 auto
+        f) order: item의 배치순서를 지정한다.
+                  -html코드를 변경하지 않고 order의 속성값을 지정하는 것으로 간단히 재배치 가능
+                  -기본 배치 순서는 container에 추가된 순서이며 기본값은 0이다.
+
+
+            

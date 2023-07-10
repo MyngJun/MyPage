@@ -1,0 +1,10 @@
+#post{
+    padding: 10px;
+    margin: 13px;
+    width: 30%;
+    border: 3px solid rgb(220, 220, 220);
+}
+#MyPost{
+    height: calc(30vh - 20px);
+    justify-content: space-around;
+}
