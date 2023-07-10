@@ -27,6 +27,24 @@
 #MyInfo{
     height: 140px;
 }
+@media (max-width: 770px)   {
+    #Memo{
+        width: 100vw;
+        height: 150px;
+        margin-top: 20px;
+    }
+}
+@media (min-width: 770px)   {
+        #Memo{
+        width: 100vw;
+        height: 150px;
+        margin-top: 20px;
+    }
+}
 #PostBox{
     padding-top: 30px;
+    width: 100%;
+    height: calc( 100vh - 490px );
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
